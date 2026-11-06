@@ -38,20 +38,24 @@
   </section>
 
   <section class="reveal">
-    <h2>On the shores of Lake Geneva</h2>
-    <div id="map" role="img" aria-label="Map of Lake Geneva showing the vineyard"></div>
-    <p class="caption"><span data-f="village"></span> · <span data-f="region"></span></p>
+    <h2>Meet your winemaker</h2>
+    <div class="card">
+      <div class="winemaker">
+        <div class="avatar" id="avatar" aria-hidden="true"></div>
+        <div>
+          <h3 class="wm-name" data-f="winemaker"></h3>
+          <p class="wm-place"><span data-f="domain"></span><br><span data-f="village"></span> · <span data-f="region"></span></p>
+        </div>
+      </div>
+      <blockquote><p data-f="quote"></p></blockquote>
+      <a class="btn btn-primary" id="route-link" target="_blank" rel="noopener">Get directions to the winery</a>
+    </div>
   </section>
 
   <section class="reveal">
-    <h2>Meet the winemaker</h2>
-    <div class="winemaker">
-      <div class="avatar" id="avatar" aria-hidden="true"></div>
-      <blockquote>
-        <p data-f="quote"></p>
-        <footer>— <span data-f="winemaker"></span>, winemaker</footer>
-      </blockquote>
-    </div>
+    <h2>On the shores of Lake Geneva</h2>
+    <div id="map" role="img" aria-label="Map of Lake Geneva showing the vineyard"></div>
+    <p class="caption"><span data-f="village"></span> · <span data-f="region"></span></p>
   </section>
 
   <section class="reveal">
@@ -87,7 +91,7 @@
 
   <section class="reveal actions">
     <a class="btn btn-primary" href="shop.html">Shop more</a>
-    <a class="btn btn-ghost" id="winery-link" target="_blank" rel="noopener">Visit the winery</a>
+    <a class="btn btn-ghost" id="winery-link" target="_blank" rel="noopener" hidden>Visit the winery</a>
   </section>
 </main>
 
@@ -137,8 +141,14 @@
   if (v.winemaker.photo) avatar.outerHTML = `<img class="avatar" src="${encodeURI(v.winemaker.photo)}" alt="">`;
   else avatar.textContent = v.winemaker.name.charAt(0);
 
-  document.getElementById('winery-link').href = v.website ||
-    `https://www.openstreetmap.org/?mlat=${v.lat}&mlon=${v.lng}#map=15/${v.lat}/${v.lng}`;
+  // Opens the Maps app on phones with the route from where the visitor stands.
+  document.getElementById('route-link').href =
+    `https://www.google.com/maps/dir/?api=1&destination=${v.lat},${v.lng}`;
+  if (v.website) {
+    const site = document.getElementById('winery-link');
+    site.href = v.website;
+    site.hidden = false;
+  }
 
   document.getElementById('content').hidden = false;
 
@@ -151,7 +161,7 @@
   const wine = getComputedStyle(document.documentElement).getPropertyValue('--wine').trim();
   L.circleMarker([v.lat, v.lng], { radius: 14, color: wine, weight: 2, fillOpacity: .15 }).addTo(map);
   L.circleMarker([v.lat, v.lng], { radius: 6, color: wine, weight: 0, fillOpacity: 1 })
-    .addTo(map).bindTooltip(v.village, { permanent: true, direction: 'top', offset: [0, -8] });
+    .addTo(map).bindTooltip(`${v.winemaker.name} · ${v.village}`, { permanent: true, direction: 'top', offset: [0, -8] });
 
   // Gentle reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => {

@@ -26,9 +26,12 @@
     <ul class="list">
       <li><a href="#"><span><strong>Card holder</strong><br><small>Grape leather</small></span><span>CHF 59</span></a></li>
       <li><a href="#"><span><strong>Wallet</strong><br><small>Grape leather</small></span><span>CHF 129</span></a></li>
-      <li><a href="#"><span><strong>Zip pouch</strong><br><small>Grape leather</small></span><span>CHF 79</span></a></li>
-      <li><a href="#"><span><strong>Cap</strong><br><small>Organic cotton, grape-leather patch</small></span><span>CHF 49</span></a></li>
     </ul>
+  </section>
+  <section>
+    <h2>Our winemakers</h2>
+    <p>Every piece is made from the pomace of one of these local winemakers.</p>
+    <ul class="list" id="winemakers"></ul>
   </section>
   <section class="actions">
     <a class="btn btn-ghost" href="index.html">Back to VINÉA</a>
@@ -39,5 +42,21 @@
   <strong>VINÉA</strong>
   <p>Local waste. Local winemakers. Local value.</p>
 </footer>
+
+<script>
+fetch('data/vineyards.json').then(r => r.json()).then(all => {
+  const ul = document.getElementById('winemakers');
+  for (const [id, v] of Object.entries(all)) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `vineyard.html?id=${encodeURIComponent(id)}`;
+    a.innerHTML = '<span><strong></strong><br><small></small></span><span aria-hidden="true">→</span>';
+    a.querySelector('strong').textContent = `${v.winemaker.name} · ${v.domain}`;
+    a.querySelector('small').textContent = `${v.village} · ${v.region}${v.demo ? ' · demo' : ''}`;
+    li.append(a);
+    ul.append(li);
+  }
+}).catch(() => {});
+</script>
 </body>
 </html>
