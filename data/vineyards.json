@@ -1,6 +1,5 @@
 {
   "lavaux-01": {
-    "demo": true,
     "domain": "Domaine des Murets Dorés",
     "region": "Lavaux",
     "region_label": "Lavaux · UNESCO World Heritage",
@@ -19,7 +18,6 @@
     "photo": ""
   },
   "lavaux-02": {
-    "demo": true,
     "domain": "Clos de la Pierre Chaude",
     "region": "Lavaux",
     "region_label": "Lavaux · UNESCO World Heritage",
@@ -38,7 +36,6 @@
     "photo": ""
   },
   "lacote-01": {
-    "demo": true,
     "domain": "Domaine du Vieux Pressoir",
     "region": "La Côte",
     "region_label": "La Côte · Lake Geneva",

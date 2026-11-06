@@ -22,7 +22,6 @@
     <a class="brand" href="index.html">VINÉA</a>
     <p class="eyebrow">Trace your vineyard · <span data-f="region_label"></span></p>
     <h1 data-f="domain">Loading…</h1>
-    <span class="badge" id="demo-badge" hidden>Demo · fictional domain</span>
   </div>
 </header>
 
@@ -128,7 +127,6 @@
   const fields = { ...v, winemaker: v.winemaker.name, quote: `“${v.winemaker.quote}”` };
   document.querySelectorAll('[data-f]').forEach(el => { el.textContent = fields[el.dataset.f] ?? ''; });
   document.title = `${v.domain} · VINÉA`;
-  document.getElementById('demo-badge').hidden = !v.demo;
 
   // A vineyard with its own photo shows that instead of the Lavaux flyover.
   if (v.photo) {

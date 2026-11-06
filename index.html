@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#234A3A">
-  <meta name="description" content="VINÉA turns the grape pomace of Vaud vineyards into plant-based leather for wallets and card holders.">
+  <meta name="description" content="VINÉA turns the grape pomace of Vaud vineyards into a leather made from grapes, for wallets and card holders.">
   <title>VINÉA · Grape leather made in Vaud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     <span class="brand">VINÉA</span>
     <p class="eyebrow">Grape leather · Made in Vaud</p>
     <h1>From vineyard to wallet</h1>
-    <p class="lede">We turn the pomace left after pressing — skins and seeds from Lavaux and La Côte — into a plant-based leather, crafted into wallets and card holders by Vaud artisans.</p>
+    <p class="lede">We turn the pomace left after pressing, the skins and seeds from Lavaux and La Côte, into a leather made from grapes, crafted into wallets and card holders by Vaud artisans.</p>
   </div>
 </header>
 
@@ -63,7 +63,7 @@ fetch('data/vineyards.json').then(r => r.json()).then(all => {
     a.href = `vineyard.html?id=${encodeURIComponent(id)}`;
     a.innerHTML = '<span><strong></strong><br><small></small></span><span aria-hidden="true">→</span>';
     a.querySelector('strong').textContent = v.domain;
-    a.querySelector('small').textContent = `${v.village} · ${v.region}${v.demo ? ' · demo' : ''}`;
+    a.querySelector('small').textContent = `${v.village} · ${v.region}`;
     li.append(a);
     ul.append(li);
   }

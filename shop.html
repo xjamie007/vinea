@@ -15,7 +15,7 @@
 <header class="hero">
   <div class="hero-text">
     <a class="brand" href="index.html">VINÉA</a>
-    <p class="eyebrow">E-shop · coming soon</p>
+    <p class="eyebrow">Online shop · coming soon</p>
     <h1>The collection</h1>
     <p class="lede">Our online shop opens soon. Until then, find VINÉA in partner winery shops around Lake Geneva.</p>
   </div>
@@ -52,7 +52,7 @@ fetch('data/vineyards.json').then(r => r.json()).then(all => {
     a.href = `vineyard.html?id=${encodeURIComponent(id)}`;
     a.innerHTML = '<span><strong></strong><br><small></small></span><span aria-hidden="true">→</span>';
     a.querySelector('strong').textContent = `${v.winemaker.name} · ${v.domain}`;
-    a.querySelector('small').textContent = `${v.village} · ${v.region}${v.demo ? ' · demo' : ''}`;
+    a.querySelector('small').textContent = `${v.village} · ${v.region}`;
     li.append(a);
     ul.append(li);
   }

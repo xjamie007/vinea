@@ -1,9 +1,9 @@
-# VINÉA – Trace your vineyard
+# VINÉA · Trace your vineyard
 
 Petit site statique (HTML + CSS + JavaScript, sans framework) pour VINÉA, projet étudiant HEC Lausanne.
 Chaque produit porte un QR code ; en le scannant, on arrive sur la page du vignoble d'où vient le raisin.
 
-> Les trois vignobles fournis (`lavaux-01`, `lavaux-02`, `lacote-01`) sont **fictifs** (`"demo": true`, badge « Demo » affiché sur la page).
+> Les trois vignobles fournis (`lavaux-01`, `lavaux-02`, `lacote-01`) sont **fictifs** : remplacez-les par les vrais domaines avant de les imprimer.
 
 ## Contenu
 
@@ -42,7 +42,6 @@ Puis ouvrir `http://localhost:3000` (ou `:8000`) et par exemple `http://localhos
 
 ```json
 "lacote-02": {
-  "demo": false,
   "domain": "Nom du domaine",
   "region": "La Côte",
   "region_label": "La Côte · Lake Geneva",
@@ -93,14 +92,14 @@ Toujours scanner un QR code imprimé avec un téléphone avant de lancer une sé
 
 ## Mettre le site en ligne gratuitement
 
-### Option 1 – Netlify (le plus simple)
+### Option 1 · Netlify (le plus simple)
 
 1. Aller sur <https://app.netlify.com/drop>.
 2. Glisser-déposer le dossier du site (sans `node_modules`).
 3. Netlify donne une adresse du type `https://xxx.netlify.app` ; on peut la renommer dans *Site configuration → Change site name*.
 4. Mettre cette adresse dans `BASE_URL` et relancer `npm run qr`.
 
-### Option 2 – GitHub Pages
+### Option 2 · GitHub Pages
 
 1. Créer un dépôt GitHub public (ex. `vinea`) et y pousser le dossier.
 2. *Settings → Pages → Source : Deploy from a branch*, branche `main`, dossier `/ (root)`.
