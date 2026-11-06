@@ -61,7 +61,7 @@
   <section class="reveal">
     <h2>Your impact</h2>
     <div class="stats">
-      <div class="stat"><b><span data-f="distance_km"></span> km</b><span>from the vine to your wallet</span></div>
+      <div class="stat"><b><span class="count" data-f="distance_km"></span> km</b><span>from the vine to your wallet</span></div>
       <div class="stat"><b>5 %</b><span>of profit to this winemaker</span></div>
       <div class="stat"><b>5 %</b><span>to natural fertiliser research (Changins)</span></div>
     </div>
@@ -169,5 +169,6 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 </script>
+<script src="count.js"></script>
 </body>
 </html>

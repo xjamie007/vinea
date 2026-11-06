@@ -30,7 +30,7 @@
   <section class="reveal">
     <h2>Waste in, value out</h2>
     <div class="stats">
-      <div class="stat"><b>20 km</b><span>from the vine to your wallet</span></div>
+      <div class="stat"><b><span class="count">20</span> km</b><span>from the vine to your wallet</span></div>
       <div class="stat"><b>5 %</b><span>of profit back to winemakers</span></div>
       <div class="stat"><b>5 %</b><span>to natural fertiliser research (Changins)</span></div>
     </div>
@@ -74,5 +74,6 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="count.js"></script>
 </body>
 </html>

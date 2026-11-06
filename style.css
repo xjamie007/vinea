@@ -177,3 +177,14 @@ blockquote footer { color: var(--muted); font-size: .9rem; }
 .wm-place { margin: .3rem 0 0; color: var(--muted); font-size: .92rem; line-height: 1.45; }
 .card blockquote { margin: 1.2rem 0 1.4rem; }
 .btn[hidden] { display: none; }
+
+/* Scroll: the hero video drifts and the wordmark lifts away as you scroll */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-media video { animation: hero-drift linear both; animation-timeline: scroll(); animation-range: 0 70vh; }
+    .hero-word { animation: hero-lift linear both; animation-timeline: scroll(); animation-range: 0 50vh; }
+  }
+}
+@keyframes hero-drift { to { transform: scale(1.15) translateY(6%); } }
+@keyframes hero-lift { to { transform: translateY(-40%); opacity: 0; } }
+.count { font-variant-numeric: tabular-nums; }
