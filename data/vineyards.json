@@ -1,0 +1,59 @@
+{
+  "lavaux-01": {
+    "demo": true,
+    "domain": "Domaine des Murets Dorés",
+    "region": "Lavaux",
+    "region_label": "Lavaux · UNESCO World Heritage",
+    "village": "Epesses",
+    "grape": "Chasselas",
+    "harvest": 2025,
+    "lat": 46.4917,
+    "lng": 6.7486,
+    "distance_km": 15,
+    "winemaker": {
+      "name": "Lucie",
+      "quote": "Our terraces give everything to the wine. Now even the skins come back as something you keep.",
+      "photo": ""
+    },
+    "website": "",
+    "photo": ""
+  },
+  "lavaux-02": {
+    "demo": true,
+    "domain": "Clos de la Pierre Chaude",
+    "region": "Lavaux",
+    "region_label": "Lavaux · UNESCO World Heritage",
+    "village": "Saint-Saphorin",
+    "grape": "Pinot Noir",
+    "harvest": 2025,
+    "lat": 46.4728,
+    "lng": 6.7966,
+    "distance_km": 20,
+    "winemaker": {
+      "name": "Marc",
+      "quote": "Three suns warm these vines: the sky, the lake and the stone walls. You are carrying a bit of all three.",
+      "photo": ""
+    },
+    "website": "",
+    "photo": ""
+  },
+  "lacote-01": {
+    "demo": true,
+    "domain": "Domaine du Vieux Pressoir",
+    "region": "La Côte",
+    "region_label": "La Côte · Lake Geneva",
+    "village": "Féchy",
+    "grape": "Gamay",
+    "harvest": 2025,
+    "lat": 46.4793,
+    "lng": 6.3729,
+    "distance_km": 18,
+    "winemaker": {
+      "name": "Élodie",
+      "quote": "For years the pomace went straight back to the field. Seeing it become a wallet still makes me smile.",
+      "photo": ""
+    },
+    "website": "",
+    "photo": ""
+  }
+}

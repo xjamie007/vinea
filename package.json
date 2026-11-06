@@ -1,0 +1,11 @@
+{
+  "name": "vinea-site",
+  "private": true,
+  "scripts": {
+    "qr": "node generate-qr.js",
+    "start": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

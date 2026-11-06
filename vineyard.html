@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#234A3A">
+  <title>Trace your vineyard · VINÉA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-media">
+    <video id="hero-video" src="img/lavaux.mp4" poster="img/lavaux.jpg" autoplay muted playsinline preload="metadata" aria-hidden="true"></video>
+  </div>
+  <div class="hero-text">
+    <a class="brand" href="index.html">VINÉA</a>
+    <p class="eyebrow">Trace your vineyard · <span data-f="region_label"></span></p>
+    <h1 data-f="domain">Loading…</h1>
+    <span class="badge" id="demo-badge" hidden>Demo · fictional domain</span>
+  </div>
+</header>
+
+<main class="wrap" id="content" hidden>
+  <section class="reveal">
+    <div class="card">
+      <h2>Your wallet comes from here</h2>
+      <dl class="facts">
+        <div><dt>Grape variety</dt><dd data-f="grape"></dd></div>
+        <div><dt>Harvest</dt><dd data-f="harvest"></dd></div>
+        <div><dt>Village</dt><dd data-f="village"></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>On the shores of Lake Geneva</h2>
+    <div id="map" role="img" aria-label="Map of Lake Geneva showing the vineyard"></div>
+    <p class="caption"><span data-f="village"></span> · <span data-f="region"></span></p>
+  </section>
+
+  <section class="reveal">
+    <h2>Meet the winemaker</h2>
+    <div class="winemaker">
+      <div class="avatar" id="avatar" aria-hidden="true"></div>
+      <blockquote>
+        <p data-f="quote"></p>
+        <footer>— <span data-f="winemaker"></span>, winemaker</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Your impact</h2>
+    <div class="stats">
+      <div class="stat"><b><span data-f="distance_km"></span> km</b><span>from the vine to your wallet</span></div>
+      <div class="stat"><b>5 %</b><span>of profit to this winemaker</span></div>
+      <div class="stat"><b>5 %</b><span>to natural fertiliser research (Changins)</span></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>From pomace to wallet</h2>
+    <ol class="steps">
+      <li>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 5c1.5-1.5 4-1.5 5 0"/><circle cx="9" cy="9" r="2.3"/><circle cx="13.5" cy="9" r="2.3"/><circle cx="11.2" cy="13" r="2.3"/><circle cx="7" cy="13" r="2.3"/><circle cx="15.5" cy="13" r="2.3"/><circle cx="9.2" cy="17" r="2.3"/><circle cx="13.6" cy="17" r="2.3"/><circle cx="11.4" cy="20.6" r="1.6"/></svg></span>
+        <div><h3>Collect</h3><p>Pomace is picked up at the press, right after the harvest.</p></div>
+      </li>
+      <li>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M12 1.5v1.5M12 13v1.5M5.5 8H4M20 8h-1.5M7.4 3.4l1 1M15.6 11.6l1 1M16.6 3.4l-1 1M8.4 11.6l-1 1"/><path d="M5 17h14l-2 5H7z"/><path d="M9 19.5h.01M12 19.5h.01M15 19.5h.01"/></svg></span>
+        <div><h3>Dry &amp; grind</h3><p>Skins and seeds are dried, then milled into a fine powder.</p></div>
+      </li>
+      <li>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4-9 4z"/><path d="M3 12l9 4 9-4"/><path d="M3 16l9 4 9-4"/></svg></span>
+        <div><h3>Bind</h3><p>The powder is bound with a natural binder into supple sheets.</p></div>
+      </li>
+      <li>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M6 15.5h.01M8.5 15.5h.01M11 15.5h.01M13.5 15.5h.01"/><path d="M16 15.5h3"/></svg></span>
+        <div><h3>Finish</h3><p>Vaud artisans cut, stitch and finish your piece by hand.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="reveal actions">
+    <a class="btn btn-primary" href="shop.html">Shop more</a>
+    <a class="btn btn-ghost" id="winery-link" target="_blank" rel="noopener">Visit the winery</a>
+  </section>
+</main>
+
+<main class="wrap" id="not-found" hidden>
+  <section>
+    <h2>Vineyard not found</h2>
+    <p>This code doesn’t match any vineyard yet. Try scanning again, or <a href="index.html">discover VINÉA</a>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <strong>VINÉA</strong>
+  <p>Local waste. Local winemakers. Local value.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(async () => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.getElementById("hero-video").pause();
+  const id = new URLSearchParams(location.search).get('id');
+  let v;
+  try {
+    const all = await (await fetch('data/vineyards.json')).json();
+    v = Object.hasOwn(all, id) ? all[id] : null;
+  } catch { v = null; }
+
+  if (!v) {
+    document.querySelector('[data-f="domain"]').textContent = 'Trace your vineyard';
+    document.getElementById('not-found').hidden = false;
+    return;
+  }
+
+  const fields = { ...v, winemaker: v.winemaker.name, quote: `“${v.winemaker.quote}”` };
+  document.querySelectorAll('[data-f]').forEach(el => { el.textContent = fields[el.dataset.f] ?? ''; });
+  document.title = `${v.domain} · VINÉA`;
+  document.getElementById('demo-badge').hidden = !v.demo;
+
+  // A vineyard with its own photo shows that instead of the Lavaux flyover.
+  if (v.photo) {
+    const img = document.createElement('img');
+    img.src = v.photo;
+    img.alt = `Vineyards of ${v.village}, ${v.region}`;
+    document.getElementById('hero-video').replaceWith(img);
+  }
+
+  const avatar = document.getElementById('avatar');
+  if (v.winemaker.photo) avatar.outerHTML = `<img class="avatar" src="${encodeURI(v.winemaker.photo)}" alt="">`;
+  else avatar.textContent = v.winemaker.name.charAt(0);
+
+  document.getElementById('winery-link').href = v.website ||
+    `https://www.openstreetmap.org/?mlat=${v.lat}&mlon=${v.lng}#map=15/${v.lat}/${v.lng}`;
+
+  document.getElementById('content').hidden = false;
+
+  // Map: whole Léman in view, one point on the vineyard. Dragging off on touch so the page still scrolls.
+  const map = L.map('map', { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, zoomControl: false, attributionControl: true });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  map.fitBounds([[46.20, 6.14], [46.52, 6.94]]);
+  const wine = getComputedStyle(document.documentElement).getPropertyValue('--wine').trim();
+  L.circleMarker([v.lat, v.lng], { radius: 14, color: wine, weight: 2, fillOpacity: .15 }).addTo(map);
+  L.circleMarker([v.lat, v.lng], { radius: 6, color: wine, weight: 0, fillOpacity: 1 })
+    .addTo(map).bindTooltip(v.village, { permanent: true, direction: 'top', offset: [0, -8] });
+
+  // Gentle reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

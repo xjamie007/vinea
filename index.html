@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#234A3A">
+  <meta name="description" content="VINÉA turns the grape pomace of Vaud vineyards into plant-based leather for wallets and card holders.">
+  <title>VINÉA · Grape leather made in Vaud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-media">
+    <video id="hero-video" src="img/lavaux.mp4" poster="img/lavaux.jpg" autoplay muted playsinline preload="metadata" aria-hidden="true"></video>
+  </div>
+  <div class="hero-text">
+    <span class="brand">VINÉA</span>
+    <p class="eyebrow">Grape leather · Made in Vaud</p>
+    <h1>From vineyard to wallet</h1>
+    <p class="lede">We turn the pomace left after pressing — skins and seeds from Lavaux and La Côte — into a plant-based leather, crafted into wallets and card holders by Vaud artisans.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="reveal">
+    <h2>Waste in, value out</h2>
+    <div class="stats">
+      <div class="stat"><b>20 km</b><span>from the vine to your wallet</span></div>
+      <div class="stat"><b>5 %</b><span>of profit back to winemakers</span></div>
+      <div class="stat"><b>5 %</b><span>to natural fertiliser research (Changins)</span></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Trace your vineyard</h2>
+    <p>Every VINÉA piece carries a QR code. Scan it to meet the vineyard and the winemaker behind your grapes.</p>
+    <ul class="list" id="vineyards"></ul>
+  </section>
+
+  <section class="reveal actions">
+    <a class="btn btn-primary" href="shop.html">Shop</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <strong>VINÉA</strong>
+  <p>Local waste. Local winemakers. Local value.</p>
+</footer>
+
+<script>
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.getElementById("hero-video").pause();
+
+fetch('data/vineyards.json').then(r => r.json()).then(all => {
+  const ul = document.getElementById('vineyards');
+  for (const [id, v] of Object.entries(all)) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `vineyard.html?id=${encodeURIComponent(id)}`;
+    a.innerHTML = '<span><strong></strong><br><small></small></span><span aria-hidden="true">→</span>';
+    a.querySelector('strong').textContent = v.domain;
+    a.querySelector('small').textContent = `${v.village} · ${v.region}${v.demo ? ' · demo' : ''}`;
+    li.append(a);
+    ul.append(li);
+  }
+}).catch(() => {});
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
