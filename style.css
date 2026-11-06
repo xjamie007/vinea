@@ -47,8 +47,17 @@ h3 { font-size: 1.35rem; }
 
 /* Hero */
 .hero { background: var(--paper); }
-.hero-media { aspect-ratio: 4 / 3; max-height: 62vh; width: 100%; overflow: hidden; background: var(--green); }
+.hero-media { position: relative; aspect-ratio: 4 / 3; max-height: 62vh; width: 100%; overflow: hidden; background: var(--green); }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-word {
+  position: absolute; inset: 0; z-index: 1; margin: 0;
+  display: grid; place-items: center;
+  font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 600;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-size: clamp(3.5rem, 18vw, 8rem); letter-spacing: .01em;
+  color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.45);
+  pointer-events: none;
+}
 .hero-text { padding: 28px 20px 36px; max-width: 640px; margin: 0 auto; }
 .brand {
   display: inline-block;
